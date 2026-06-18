@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('rps','rps command','fun',async(i)=>simple(i,'rps','The rps command is available and wired for slash and prefix usage.'));

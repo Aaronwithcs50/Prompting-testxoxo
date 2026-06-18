@@ -1,0 +1,1 @@
+document.addEventListener('change',e=>{if(e.target.matches('[data-toggle]')) e.target.closest('form')?.requestSubmit();});

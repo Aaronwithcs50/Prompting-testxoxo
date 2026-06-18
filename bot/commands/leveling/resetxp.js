@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('resetxp','resetxp command','leveling',async(i)=>simple(i,'resetxp','The resetxp command is available and wired for slash and prefix usage.'));

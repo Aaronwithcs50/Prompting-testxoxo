@@ -1,0 +1,1 @@
+const express=require('express'); const {hasManageGuild}=require('../../shared/permissions'); const router=express.Router(); router.get('/dashboard',(req,res)=>{const guilds=(req.session.guilds||[]).filter(g=>hasManageGuild(g.permissions)); res.render('dashboard',{title:'Dashboard',user:req.session.user,guilds});}); module.exports=router;

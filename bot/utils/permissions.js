@@ -1,0 +1,1 @@
+const { PermissionFlagsBits } = require('discord.js'); function canModerate(actor,target){ if(!target) return true; if(target.id===target.guild.ownerId) return false; return actor.roles.highest.comparePositionTo(target.roles.highest)>0; } module.exports={PermissionFlagsBits,canModerate};

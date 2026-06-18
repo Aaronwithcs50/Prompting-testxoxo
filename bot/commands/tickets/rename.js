@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('rename','rename command','tickets',async(i)=>simple(i,'rename','The rename command is available and wired for slash and prefix usage.'));

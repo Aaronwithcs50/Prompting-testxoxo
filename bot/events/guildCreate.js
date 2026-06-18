@@ -1,0 +1,1 @@
+module.exports={name:'guildCreate',async execute(guild){const Guild=require('../../models/Guild'); await Guild.findOneAndUpdate({guildId:guild.id},{guildId:guild.id,active:true},{upsert:true,setDefaultsOnInsert:true});}};

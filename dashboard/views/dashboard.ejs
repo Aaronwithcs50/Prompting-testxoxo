@@ -1,0 +1,1 @@
+<%- include('layouts/main', { body: `<h1>Your Guilds</h1><input class='input' data-filter placeholder='Search guilds'><div class='grid'>${guilds.map(g=>`<div class='card'><h3>${g.name}</h3><a class='btn' href='/dashboard/${g.id}'>Manage</a></div>`).join('')}</div>` }) %>

@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('setlevel','setlevel command','leveling',async(i)=>simple(i,'setlevel','The setlevel command is available and wired for slash and prefix usage.'));

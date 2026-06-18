@@ -1,0 +1,1 @@
+const { getGuildConfig } = require('../utils/cache'); const embeds = require('../utils/embeds'); async function log(guild,key,embed){ const cfg=await getGuildConfig(guild.id); const id=cfg.logging?.channels?.[key]; const ch=id&&guild.channels.cache.get(id); if(cfg.modules?.logging&&cfg.logging?.enabled) ch?.send({embeds:[embed]}).catch(()=>{}); } module.exports={log};

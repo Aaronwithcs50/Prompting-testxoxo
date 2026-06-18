@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('greroll','greroll command','giveaways',async(i)=>simple(i,'greroll','The greroll command is available and wired for slash and prefix usage.'));

@@ -1,0 +1,1 @@
+const {cmd,embeds}=require('../_factory'); module.exports=cmd('ping','Show bot latency','utility',async(i,client)=>embeds.safeReply(i,{embeds:[embeds.success('Pong',`WebSocket: ${client.ws.ping}ms`)]}),['p']);

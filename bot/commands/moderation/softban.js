@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('softban','softban command','moderation',async(i)=>simple(i,'softban','The softban command is available and wired for slash and prefix usage.'));

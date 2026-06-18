@@ -1,0 +1,1 @@
+document.addEventListener('input',e=>{const p=document.querySelector('[data-embed-preview]'); if(!p) return; p.querySelector('.title').textContent=document.querySelector('[name=title]')?.value||'Embed title'; p.querySelector('.description').textContent=document.querySelector('[name=description]')?.value||'Embed description';});

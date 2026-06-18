@@ -1,0 +1,1 @@
+const express=require('express'); const router=express.Router(); router.get('/',(req,res)=>res.render('index',{title:'Home',user:req.session.user})); router.get('/login',(req,res)=>res.render('login',{title:'Login',user:req.session.user})); module.exports=router;
