@@ -1,1 +1,21 @@
-<nav class="nav"><b>Melonly Suite</b><% if (user) { %><form method="post" action="/logout"><button>Logout</button></form><% } %></nav>
+<nav class="nav melonly-nav">
+  <a class="brand" href="/dashboard"><span class="brand-mark"></span>melonly</a>
+  <div class="nav-links">
+    <a href="/dashboard">Dashboard</a>
+    <a href="#">Products <i data-feather="chevron-down"></i></a>
+    <a href="#"><span class="mini-logo"></span>Bundles</a>
+    <a href="#"><span class="spark">✦</span>Plus</a>
+    <a href="#"><span class="dept-icon"></span>Departments</a>
+    <a href="#">Discovery <i data-feather="chevron-down"></i></a>
+    <a href="#">Resources <i data-feather="chevron-down"></i></a>
+  </div>
+  <div class="nav-tools">
+    <div class="search-box"><i data-feather="search"></i><span class="mini-logo"></span><strong>My Servers</strong><em>- Mel</em><kbd>CTRL + K</kbd></div>
+    <div class="bell"><i data-feather="bell"></i><span>20</span></div>
+    <% if (user && user.avatar) { %>
+      <img class="nav-avatar" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png?size=64" alt="User avatar">
+    <% } else { %>
+      <img class="nav-avatar" src="https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Melonly" alt="Guest avatar">
+    <% } %>
+  </div>
+</nav>

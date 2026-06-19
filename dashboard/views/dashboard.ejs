@@ -1,81 +1,75 @@
 <%
   const safeGuilds = guilds || [];
-  const managedCount = safeGuilds.length;
-  const premiumCount = safeGuilds.filter(g => g.features && g.features.length).length;
-  const animatedCount = safeGuilds.filter(g => g.icon).length;
-  const permissionScore = Math.min(100, Math.round((managedCount / Math.max(managedCount, 8)) * 100));
+  const displayName = (user && (user.global_name || user.username)) || 'Lexi';
+  const avatarUrl = user && user.id && user.avatar
+    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=96`
+    : 'https://api.dicebear.com/8.x/bottts-neutral/svg?seed=Melonly';
   const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+  const cards = safeGuilds.length ? safeGuilds : [
+    { id: 'preview-1', name: 'cbrp', features: ['VIP'], approximate_member_count: 0 },
+    { id: 'preview-2', name: 'CaliforniaRoleplay', features: ['VIP'], approximate_member_count: 0 },
+    { id: 'preview-3', name: 'San Antonio texas state roleplay', features: ['VIP'], approximate_member_count: 0 }
+  ];
 %>
 <%- include('layouts/main', { body: `
-<section class="dashboard-hero" data-magnetic-zone>
-  <div class="hero-orb hero-orb-one"></div>
-  <div class="hero-orb hero-orb-two"></div>
-  <div class="hero-copy">
-    <span class="eyebrow">Componentry-inspired command center</span>
-    <h1 class="kinetic-title" data-letter-cascade>Manage every Discord server with motion and clarity.</h1>
-    <p>Search your guilds, monitor setup health, and jump into modules from an animated dashboard built with lightweight interactions inspired by Componentry's crafted primitives.</p>
-    <div class="hero-actions">
-      <a class="btn btn-lg" href="#guilds">Browse guilds</a>
-      <button class="btn btn-ghost" type="button" data-scroll-target="#insights">View insights</button>
-    </div>
+<section class="melonly-shell">
+  <div class="welcome-row">
+    <img class="welcome-avatar" src="${avatarUrl}" alt="${escapeHtml(displayName)} avatar">
+    <h1>Happy Summer, <span>${escapeHtml(displayName)}!</span></h1>
   </div>
-  <div class="split-flap-card" aria-label="Managed guild count">
-    <span class="split-label">Managed Guilds</span>
-    <div class="split-value" data-count-up="${managedCount}">0</div>
-    <span class="split-caption">ready to configure</span>
-  </div>
-</section>
 
-<section class="dashboard-insights" id="insights">
-  <article class="metric-card card">
-    <span class="metric-label">Setup coverage</span>
-    <strong data-count-up="${permissionScore}">0</strong><span class="metric-suffix">%</span>
-    <div class="metric-bar"><span style="width:${permissionScore}%"></span></div>
-  </article>
-  <article class="metric-card card">
-    <span class="metric-label">Custom icons</span>
-    <strong data-count-up="${animatedCount}">0</strong>
-    <p>Guilds with recognizable branding.</p>
-  </article>
-  <article class="metric-card card">
-    <span class="metric-label">Feature-rich servers</span>
-    <strong data-count-up="${premiumCount}">0</strong>
-    <p>Servers exposing Discord feature flags.</p>
-  </article>
-</section>
-
-<section class="component-showcase card">
-  <div>
-    <span class="eyebrow">Quick actions</span>
-    <h2>Magnetic module dock</h2>
-    <p>Hover the dock to preview the same high-motion feel used throughout the new dashboard experience.</p>
+  <div class="quick-actions" aria-label="Quick actions">
+    <a class="action-pill action-join" href="/login"><i data-feather="log-in"></i>Join</a>
+    <a class="action-pill action-new" href="#guilds"><i data-feather="plus"></i>New</a>
+    <button class="action-pill action-blue" type="button"><i data-feather="calendar"></i>Manage Leave of Absences</button>
+    <button class="action-pill action-blue" type="button"><i data-feather="star"></i>Get Subscriptions</button>
   </div>
-  <div class="magnetic-dock" data-magnetic-dock>
-    <a href="/dashboard" aria-label="Guilds"><i data-feather="grid"></i><span>Guilds</span></a>
-    <a href="#guilds" aria-label="Search"><i data-feather="search"></i><span>Search</span></a>
-    <a href="#insights" aria-label="Insights"><i data-feather="bar-chart-2"></i><span>Insights</span></a>
-    <a href="/" aria-label="Home"><i data-feather="home"></i><span>Home</span></a>
-  </div>
-</section>
 
-<section class="guild-section" id="guilds">
-  <div class="section-heading">
+  <aside class="pro-banner">
+    <div class="pro-mark" aria-hidden="true"></div>
     <div>
-      <span class="eyebrow">Guild browser</span>
-      <h2>Your Guilds</h2>
+      <strong>Need more power? Go Pro.</strong>
+      <p>Unlock Melonly Pro for advanced tools, Vision access, and a faster moderation workflow.</p>
     </div>
-    <input class="input guild-search" data-filter placeholder="Search guilds by name or id" aria-label="Search guilds">
-  </div>
-  <div class="grid guild-grid">
-    ${safeGuilds.map((g, index)=>`
-      <article class="card guild-card reveal-card" style="--delay:${index * 60}ms">
-        <div class="guild-avatar">${escapeHtml((g.name || '?').trim().charAt(0).toUpperCase())}</div>
-        <div class="guild-card-body">
-          <h3>${escapeHtml(g.name)}</h3>
-          <p>${escapeHtml(g.id)}</p>
-        </div>
-        <a class="btn" href="/dashboard/${escapeHtml(g.id)}">Manage</a>
-      </article>`).join('') || `<article class="card empty-state"><h3>No manageable guilds found</h3><p>Log in with an account that has Manage Server permissions to see guilds here.</p></article>`}
-  </div>
+    <span>MELONLY</span>
+  </aside>
+
+  <section class="server-panel" id="guilds">
+    <div class="panel-heading">
+      <div>
+        <h2>My Servers &amp; Departments</h2>
+        <p>Here are the servers and departments that you are a member of.</p>
+      </div>
+      <div class="view-toggles" aria-hidden="true"><button><i data-feather="grid"></i></button><i data-feather="list"></i></div>
+    </div>
+
+    <div class="server-grid">
+      ${cards.map((g, index) => {
+        const guildName = escapeHtml(g.name || 'Untitled server');
+        const guildId = escapeHtml(g.id || '');
+        const isReal = !String(g.id || '').startsWith('preview-');
+        const members = g.approximate_member_count || g.memberCount || 0;
+        const iconUrl = g.icon && g.id ? `https://cdn.discordapp.com/icons/${g.id}/${g.icon}.png?size=64` : '';
+        const showIcon = iconUrl && index === 2;
+        return `<article class="server-card" style="--delay:${index * 70}ms">
+          <div class="server-cover"></div>
+          <div class="server-body">
+            <div class="server-title-row">
+              <div class="server-title">${showIcon ? `<img class="server-icon" src="${iconUrl}" alt="${guildName} icon">` : ''}<h3>${guildName}</h3></div>
+              <div class="server-tools"><i data-feather="crown"></i><i data-feather="more-vertical"></i></div>
+            </div>
+            ${index === 0 ? `<div class="quick-access"><i data-feather="keyboard"></i>Quick Access: Press Ctrl + Enter</div>` : ''}
+            ${index === 2 ? `<p class="players"><i data-feather="users"></i>${members} players</p>` : ''}
+            <nav class="server-links">
+              <a href="${isReal ? `/dashboard/${guildId}` : '#'}"><i data-feather="grid"></i>Dashboard</a>
+              <a href="${isReal ? `/dashboard/${guildId}/moderation` : '#'}"><i data-feather="shield"></i>Moderator Panel</a>
+              <a href="${isReal ? `/dashboard/${guildId}/general` : '#'}"><i data-feather="folder"></i>Resources</a>
+            </nav>
+            ${index === 2 ? '<p class="weekly">4 unique players this week</p><div class="sparkline"></div>' : ''}
+          </div>
+        </article>`;
+      }).join('')}
+    </div>
+  </section>
 </section>
 ` }) %>
