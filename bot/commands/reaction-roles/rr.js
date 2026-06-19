@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('rr','rr command','reaction-roles',async(i)=>simple(i,'rr','The rr command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('rr', 'reaction-roles');

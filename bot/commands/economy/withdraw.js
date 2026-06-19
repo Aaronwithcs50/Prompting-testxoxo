@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('withdraw','withdraw command','economy',async(i)=>simple(i,'withdraw','The withdraw command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('withdraw', 'economy');
