@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('gcreate','gcreate command','giveaways',async(i)=>simple(i,'gcreate','The gcreate command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('gcreate', 'giveaways');

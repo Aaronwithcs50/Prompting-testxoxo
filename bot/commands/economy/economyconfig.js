@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('economyconfig','economyconfig command','economy',async(i)=>simple(i,'economyconfig','The economyconfig command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('economyconfig', 'economy');

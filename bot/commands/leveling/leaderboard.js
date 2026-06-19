@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('leaderboard','leaderboard command','leveling',async(i)=>simple(i,'leaderboard','The leaderboard command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('leaderboard', 'leveling');

@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('gdelete','gdelete command','giveaways',async(i)=>simple(i,'gdelete','The gdelete command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('gdelete', 'giveaways');

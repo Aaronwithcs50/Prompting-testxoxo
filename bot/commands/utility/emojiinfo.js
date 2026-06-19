@@ -1,1 +1,2 @@
-const {cmd,simple}=require('../_factory'); module.exports=cmd('emojiinfo','emojiinfo command','utility',async(i)=>simple(i,'emojiinfo','The emojiinfo command is available and wired for slash and prefix usage.'));
+const { buildCommand } = require('../_actions');
+module.exports = buildCommand('emojiinfo', 'utility');
