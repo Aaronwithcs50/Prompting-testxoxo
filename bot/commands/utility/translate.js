@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('translate','translate command','utility',async(i)=>simple(i,'translate','The translate command is available and wired for slash and prefix usage.'));

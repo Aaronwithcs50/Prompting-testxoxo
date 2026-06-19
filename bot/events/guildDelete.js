@@ -1,0 +1,1 @@
+module.exports={name:'guildDelete',async execute(guild){const Guild=require('../../models/Guild'); await Guild.updateOne({guildId:guild.id},{$set:{active:false}});}};

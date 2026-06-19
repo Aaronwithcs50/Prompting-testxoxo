@@ -1,0 +1,1 @@
+function errorHandler(err,req,res,next){ const status=err.status||500; if(req.path.startsWith('/api/')) return res.status(status).json({ok:false,error:err.message||'Server error'}); return res.status(status).render(`errors/${status===403?403:status===404?404:500}`,{title:'Error',error:err,user:req.session?.user}); } module.exports={errorHandler};

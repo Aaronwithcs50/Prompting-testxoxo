@@ -1,0 +1,1 @@
+if(document.getElementById('statsChart')&&window.Chart){new Chart(document.getElementById('statsChart'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Commands',data:[3,5,4,8,6,7,9],borderColor:'#7289DA'}]}});}

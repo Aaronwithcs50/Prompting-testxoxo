@@ -1,0 +1,1 @@
+module.exports={name:'guildBanRemove',async execute(...args){ const embeds=require('../utils/embeds'); const l=require('./_log'); const subject=args[0]; const guild=subject.guild||subject; if(guild?.id) await l.log(guild,'guildBanRemove',embeds.log('guildBanRemove','Event captured and stored in the live moderation log.')); }};

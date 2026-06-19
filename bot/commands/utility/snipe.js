@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('snipe','snipe command','utility',async(i)=>simple(i,'snipe','The snipe command is available and wired for slash and prefix usage.'));

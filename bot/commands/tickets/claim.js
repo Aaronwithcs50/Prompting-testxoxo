@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('claim','claim command','tickets',async(i)=>simple(i,'claim','The claim command is available and wired for slash and prefix usage.'));

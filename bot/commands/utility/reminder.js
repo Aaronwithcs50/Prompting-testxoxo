@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('reminder','reminder command','utility',async(i)=>simple(i,'reminder','The reminder command is available and wired for slash and prefix usage.'));

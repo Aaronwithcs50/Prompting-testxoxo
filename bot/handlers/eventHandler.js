@@ -1,0 +1,1 @@
+const fs=require('fs'); const path=require('path'); function loadEvents(client){for(const file of fs.readdirSync(path.join(__dirname,'..','events')).filter(f=>f.endsWith('.js'))){const ev=require(path.join(__dirname,'..','events',file)); client[ev.once?'once':'on'](ev.name,(...args)=>ev.execute(...args,client));}} module.exports={loadEvents};

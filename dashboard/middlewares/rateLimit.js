@@ -1,0 +1,1 @@
+const rateLimit=require('express-rate-limit'); module.exports={apiLimiter:rateLimit({windowMs:60000,limit:30,standardHeaders:true,legacyHeaders:false,keyGenerator:(req)=>`${req.session?.user?.id||req.ip}:${req.path}`})};

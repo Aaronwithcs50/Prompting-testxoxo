@@ -1,0 +1,1 @@
+module.exports = { apps: [{ name: 'melonly-bot', script: './bot/index.js', env: { NODE_ENV: 'production' } }, { name: 'melonly-dashboard', script: './dashboard/index.js', env: { NODE_ENV: 'production' } }] };

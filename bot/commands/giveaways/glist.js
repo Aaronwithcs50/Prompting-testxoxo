@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('glist','glist command','giveaways',async(i)=>simple(i,'glist','The glist command is available and wired for slash and prefix usage.'));

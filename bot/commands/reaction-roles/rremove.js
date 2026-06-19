@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('rremove','rremove command','reaction-roles',async(i)=>simple(i,'rremove','The rremove command is available and wired for slash and prefix usage.'));

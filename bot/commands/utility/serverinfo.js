@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('serverinfo','serverinfo command','utility',async(i)=>simple(i,'serverinfo','The serverinfo command is available and wired for slash and prefix usage.'));

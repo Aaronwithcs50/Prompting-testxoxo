@@ -1,0 +1,1 @@
+const express=require('express'); const router=express.Router({mergeParams:true}); router.get('/',(req,res)=>res.render('guild/giveaways',{title:'Giveaways',user:req.session.user,guild:req.guild,csrfToken:req.csrfToken()})); module.exports=router;

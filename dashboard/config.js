@@ -1,0 +1,1 @@
+require('dotenv').config(); module.exports={ clientId:process.env.CLIENT_ID, clientSecret:process.env.CLIENT_SECRET, redirectUri:process.env.REDIRECT_URI||'http://localhost:3000/auth/callback', sessionSecret:process.env.SESSION_SECRET||'change-me', port:Number(process.env.DASHBOARD_PORT||3000), mongoUri:process.env.MONGODB_URI };

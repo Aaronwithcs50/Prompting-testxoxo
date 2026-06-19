@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('slowmode','slowmode command','moderation',async(i)=>simple(i,'slowmode','The slowmode command is available and wired for slash and prefix usage.'));

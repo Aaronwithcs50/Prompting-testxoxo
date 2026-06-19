@@ -1,0 +1,1 @@
+const {cmd,simple}=require('../_factory'); module.exports=cmd('poll','poll command','utility',async(i)=>simple(i,'poll','The poll command is available and wired for slash and prefix usage.'));

@@ -1,0 +1,1 @@
+<%- include('../layouts/main', { body: `<h1>Leveling</h1><form class='card js-settings' data-endpoint='/api/leveling/<%= guild.id %>'><input type='hidden' name='_csrf' value='<%= csrfToken %>'><label>Enabled <input type='checkbox' name='enabled'></label><button class='btn'>Save</button></form>` }) %>

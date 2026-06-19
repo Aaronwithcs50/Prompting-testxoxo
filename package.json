@@ -1,0 +1,42 @@
+{
+  "name": "melonly-style-discord-suite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start:bot": "node bot/index.js",
+    "start:dashboard": "node dashboard/index.js",
+    "deploy:commands": "node bot/deploy-commands.js",
+    "lint": "node --check bot/index.js && node --check dashboard/index.js && node --check bot/deploy-commands.js",
+    "smoke": "node scripts/smoke.js"
+  },
+  "dependencies": {
+    "@discordjs/rest": "2.4.3",
+    "@napi-rs/canvas": "0.1.70",
+    "axios": "1.7.9",
+    "chart.js": "4.4.7",
+    "connect-mongo": "5.1.0",
+    "cookie-parser": "1.4.7",
+    "csurf": "1.11.0",
+    "discord-api-types": "0.37.115",
+    "discord.js": "14.16.3",
+    "dotenv": "16.4.7",
+    "ejs": "3.1.10",
+    "express": "4.21.2",
+    "express-rate-limit": "7.5.0",
+    "express-session": "1.18.1",
+    "helmet": "8.0.0",
+    "joi": "17.13.3",
+    "mongoose": "8.9.5",
+    "node-cache": "5.1.2",
+    "passport": "0.7.0",
+    "passport-discord": "0.1.4",
+    "socket.io": "4.8.1",
+    "winston": "3.17.0",
+    "winston-daily-rotate-file": "5.0.0"
+  },
+  "devDependencies": {}
+}

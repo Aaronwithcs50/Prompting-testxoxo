@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{window.feather?.replace(); document.querySelectorAll('[data-filter]').forEach(input=>input.addEventListener('input',()=>{const q=input.value.toLowerCase(); document.querySelectorAll('.card').forEach(c=>c.style.display=c.textContent.toLowerCase().includes(q)?'':'none')}));}); window.toast=(m)=>alert(m);

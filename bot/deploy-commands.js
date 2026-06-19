@@ -1,0 +1,2 @@
+const { REST, Routes } = require('discord.js'); const config=require('./config'); const {walk}=require('./handlers/commandHandler'); const path=require('path'); const commands=walk(path.join(__dirname,'commands')).filter(f=>!f.endsWith('_factory.js')).map(f=>require(f).data?.toJSON()).filter(Boolean); new REST({version:'10'}).setToken(config.token).put(Routes.applicationCommands(config.clientId),{body:commands}).then(()=>process.stdout.write(`Deployed ${commands.length} commands
+`)).catch(e=>{process.stderr.write(e.stack); process.exit(1);});
